@@ -3,33 +3,33 @@ generateInterEco <- function(appData){
   ui <- fluidPage(
     navbarPage(
       "InterEco",
+      id="navbar",
       tabPanel("Landing", id = "landingTab"),
       tabPanel("Summary", id = "summaryTab"),
       tabPanel("Validity", id = "validityTab"),
-      tabPanel("Interpretation", id = "interpretationTab"),
-      uiOutput("tab_content")
-    )
+      tabPanel("Interpretation", id = "interpretationTab")
+    ),
+    uiOutput("tab_content")
   )
   
   server <- function(input, output, session) {
-    observeEvent(input$tab_content, {
-      tab <- input$tab_content
-      output$tab_content <- renderUI({
-        tagList(
-          if (tab == "landingTab") {
-            landingUI("landingTab")
-          }  else if (tab == "summaryTab") {
-            summaryUI("summaryTab")
-          } else if (tab == "validityTab") {
-            validityUI("validityTab")
-          } else if (tab == "interpretationTab") {
-            interpretationUI("interpretationTab")
-          }
-        )
-      })
+    
+    observeEvent(input$navbar, {
+      tab <- input$navbar
+
+      output$tab_content <- renderUI(
+        if (tab == "Landing") {
+          landingUI("landingTab")
+        }  else if (tab == "Summary") {
+          summaryUI("summaryTab")
+        } else if (tab == "Validity") {
+          validityUI("validityTab")
+        } else if (tab == "Interpretation") {
+          interpretationUI("interpretationTab")
+        }
+      )
     })
     
-
     # Call module server functions
     landingTabServer("landingTab",appData=appData)
     summaryTabServer("summaryTab",appData=appData)
