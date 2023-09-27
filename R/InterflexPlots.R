@@ -27,3 +27,31 @@ RawPlot<-function(Y, D, X, Ylabel,Dlabel,Xlabel, data){
             ncols=2)+
     ggplot2::theme_bw()
 }
+
+
+#' Marginal effects plot from interflex
+#'
+#' @param Y Outcome variable 
+#' @param D Treatment variable
+#' @param X Moderating variable
+#' @param data dataframe
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#'  appdata <- makeAppData(data = mtcars, model = fiti, pred="hp", modx="wt")
+#'  marginaleffectsPlot(Y = "mpg", D = appdata$pred,X = appdata$modx,data = appdata$data)
+
+marginaleffectsPlot<-function(Y, D, X,data){
+ interflex::interflex(Y = Y, D=D,
+            X = X, 
+            data = data,
+            estimator = "binning", 
+            vcov.type = "robust", 
+            main = "Marginal Effects")
+  
+}
+
+
+
