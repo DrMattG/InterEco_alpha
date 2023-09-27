@@ -27,7 +27,7 @@ generateInterEco <- function(appData){
         )
       })
     })
-    
+
     observeEvent(input$validity, {
       output$tab_content <- renderUI({
         tagList(
@@ -35,7 +35,7 @@ generateInterEco <- function(appData){
         )
       })
     })
-    
+
     observeEvent(input$interpretation, {
       output$tab_content <- renderUI({
         tagList(
@@ -45,10 +45,10 @@ generateInterEco <- function(appData){
     })
     
     # Call the respective module's server function
-    moduleServer(module1, "landingTab")
-    moduleServer(module2, "summaryTab")
-    moduleServer(module3, "validityTab")
-    moduleServer(module3, "interpretationTab")
+    callModule(landingTab, "landingTab")
+    callModule(summaryTab, "summaryTab")
+    callModule(validityTab, "validityTab")
+    callModule(interpretationTab, "interpretationTab")
   }
   
   shinyApp(ui, server)
