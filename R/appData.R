@@ -9,17 +9,19 @@ AppClass=R6::R6Class(classname = "AppData",
                        pred= NULL,
                        #' @field modx The name of the moderator variable involved in the interaction
                        modx= NULL,
-                       
+                       #' @field path filepath to rmarkdown completed templates 
+                       path=NULL,
                        #' @description
                        #' Create a new object.
                        #' @param data dataframe
                        #' @param model model object
                        #' @return A new `AppD` object.
-                       initialize = function(data = NA, model = NA, pred=NA, modx=NA) {
+                       initialize = function(data = NA, model = NA, pred=NA, modx=NA, path=NA) {
                          self$data <- data
                          self$model <- model
                          self$pred<-pred
                          self$modx<-modx
+                         self$path<-path
                        }
                      )
                      
@@ -35,11 +37,12 @@ AppClass=R6::R6Class(classname = "AppData",
 #'
 #' @examples
 #' appdata <- makeAppData(data = iris, model = fitiris, pred="Petal.width", modx="Species")
-makeAppData <- function(data = data, model = model, pred=pred, modx=modx) {
+makeAppData <- function(data = data, model = model, pred=pred, modx=modx, path=path) {
     appdata <- AppClass$new(data = data,
                  model = model,
                  pred=pred,
-                 modx=modx
+                 modx=modx,
+                 path=path
   )
 }
 
