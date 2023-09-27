@@ -1,0 +1,129 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+
+```{r}
+library(interflex); library(tidyverse);library(lme4)
+
+dat=read.csv("C:/Users/ij926050/Dropbox/INTERECO/InteEco/antsuni.csv")
+dat=dat%>%na.omit()
+
+names(dat) <- tolower(names(dat)) 
+dat$log_richness=log(dat$richness)
+
+mod=glmer(richness~ scale(lt_clim)*(scale(woody) +scale(perc.clay)+ scale(lui) + scale(bare)+scale(exotic_grnd))  + (1|farm_id), family="poisson", data=dat)
+
+# best model selected
+bestmod=glmer(richness~scale(lt_clim)*scale(woody) +scale(lt_clim)*scale(perc.clay)+  scale(lt_clim)*scale(bare)+ scale(lui) +scale(exotic_grnd)  + (1|farm_id), family="poisson", data=dat)
+
+bestmod.us=glmer(richness~lt_clim*woody +lt_clim*perc.clay+  lt_clim*bare+ lui +exotic_grnd  + (1|farm_id), family="poisson", data=dat)
+
+```
+```{r}
+dat$lt_cut = cut(dat$lt_clim,3, c("1 lo", "2 med", "3 high"))
+interflex(estimator = "raw",Y = "richness", D = "lt_cut", X = "perc.clay", data = dat, weights = NULL, Ylabel = "Richness", Dlabel = "lt_clim", Xlabel="woody", main = "Raw Plot", cex.main = 1.2, ncols=3)+theme_bw()
+
+```
+
+```{r}
+out <- interflex(Y = "richness", D = "lt_clim", X = "perc.clay", data = dat, estimator = "binning", vcov.type = "robust", main = "Marginal Effects")
+plot(out)
+
+
+```
+```{r}
+#takes too long!
+#s5.kernel <-interflex(Y = "richness", D = "lt_clim", X = "perc.clay", data = dat, estimator = "kernel",diff.values= c(10,30,50))
+#plot(s5.kernel,diff.values = c(10,30,50))
+```
+
+## MAKE INTERACTIVE for intereco app!
+
+```{r}
+selectInput("VAR1", 
+                      label = "Variable 1",
+                      choices = list("woody", 
+                                       "lt_clim",
+                                     "perc.clay")
+            
+
+             
+selectInput("VAR2", 
+                      label = "Variable 2",
+                      choices = list("woody", 
+                                       "lt_clim",
+                                     "perc.clay")
+
+                      
+
+             
+selectInput("VAR2_BREAKS", 
+                      label = "Variable 2 breaks",
+                      choices = list("-1,0,+1 SDs" # nned to make if statement - if they select this ooption, it will compute SDs? and then these will go into diff.values arguement in interflex(), 
+                                       "25,50,75 percentiles",
+                                     "equal groups")                      
+                      
+                                            
+                      
+selectInput("SCALE_RESPONSE",
+             label = "Scale of response variable",
+                      choices = list("log_richness", 
+                                       "richness")
+
+
+
+ 
+# dat <- dat$lt_cut = cut(dat$lt_clim,3, c("1 lo", "2 med", "3 high"))# need to cut according to VAR2 breaks?
+ 
+output$interflex.plots <- renderPlot({
+   
+x <-   interflex(estimator = "raw",Y = input$SCALE_RESPONSE, D = input$VAR1, X = dat$lt_cut, data = dat, weights = NULL, Ylabel = input$SCALE_RESPONSE, Dlabel = input$VAR1, Xlabel=input$VAR2, main = "Raw Plot", cex.main = 1.2, 
+                 #diff.values = ,
+                 ncols=2)+theme_bw()
+
+
+out <- interflex(Y = input$SCALE_RESPONSE, D = input$VAR1, X = input$VAR2, data = dat, estimator = "binning", vcov.type = "robust", main = "Marginal Effects")
+xx <- out$figure
+
+
+
+grid.arrange(condplot, param.plot1, param.plot2)
+   
+ })
+
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+library(interactions)
+# render a plot that displays a classic visreg plot - y
+ output$marg.plots <- renderPlot({
+   x <- visreg(fit=mod, xvar=input$VAR1, by=input$VAR2, cond=list(LUI=input$LUI_sel, Exotic_grnd=input$Exotic_grnd_sel, Bare=input$Bare_sel),partial=F, print.cond=TRUE,nn=500, scale="response")# scale = response only if input$scale is richness??
+
+   condplot <-   ggplot(x$fit,aes(VAR1,visregFit))+
+     geom_line()+
+     facet_grid(.~VAR2,scales="free")+geom_ribbon(data=x$fit,aes(ymin=visregLwr,ymax=visregUpr),alpha=0.2)+ theme_bw() + theme(panel.grid.major = element_blank(),
+panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))+
+     xlab("VAR2")+ylab(VAR2)
+
+
+param.plot1 <- ggplot(dat)+
+  geom_point(aes(y=LUI, x=input$VAR1))+geom_hline(yintercept=input$LUI_sel, linetype="dashed", col="red")+
+  xlab("VAR2")+ylab("LUI")
+
+
+
+param.plot2 <- ggplot(dat)+
+  geom_point(aes(y=Bare, x=input$VAR1))+geom_hline(yintercept=input$Bare_sel, linetype="dashed", col="red")+
+  xlab("VAR2")+ylab("BARE")
+
+
+gird.arrange(condplot, param.plot1, param.plot2)
+   
+ })
+```
+
