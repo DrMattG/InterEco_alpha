@@ -9,7 +9,7 @@
 
 
 
-module2UI <- function(id) {
+summaryUI <- function(id) {
   ns <- NS(id)
   # Define UI for module 2
   fluidPage(
@@ -18,14 +18,18 @@ module2UI <- function(id) {
   )
 }
 
-summaryTab <- function(input, output, session) {
-  # Define server logic for module 1
-  # You can access input, output, and session here
+summaryTabServer <- function(id,appData) {
+  moduleServer(
+    id,
+    function(input, output, session) {
+
+      
+      
+    }
+  )
 }
 
-#testing
-#generateTemplateSummary("test.Rmd")
-#summaryTab(NA,"test.Rmd")
+
 
 
 

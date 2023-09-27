@@ -12,43 +12,29 @@ generateInterEco <- function(appData){
   )
   
   server <- function(input, output, session) {
-    observeEvent(input$landing, {
+    observeEvent(input$tab_content, {
+      tab <- input$tab_content
       output$tab_content <- renderUI({
         tagList(
-          module1UI("landingTab")
+          if (tab == "landingTab") {
+            landingUI("landingTab")
+          }  else if (tab == "summaryTab") {
+            summaryUI("summaryTab")
+          } else if (tab == "validityTab") {
+            validityUI("validityTab")
+          } else if (tab == "interpretationTab") {
+            interpretationUI("interpretationTab")
+          }
         )
       })
     })
     
-    observeEvent(input$summary, {
-      output$tab_content <- renderUI({
-        tagList(
-          module2UI("summaryTab")
-        )
-      })
-    })
 
-    observeEvent(input$validity, {
-      output$tab_content <- renderUI({
-        tagList(
-          module3UI("validityTab")
-        )
-      })
-    })
-
-    observeEvent(input$interpretation, {
-      output$tab_content <- renderUI({
-        tagList(
-          module4UI("interpretationTab")
-        )
-      })
-    })
-    
-    # Call the respective module's server function
-    callModule(landingTab, "landingTab")
-    callModule(summaryTab, "summaryTab")
-    callModule(validityTab, "validityTab")
-    callModule(interpretationTab, "interpretationTab")
+    # Call module server functions
+    landingTabServer("landingTab",appData=appData)
+    summaryTabServer("summaryTab",appData=appData)
+    validityTabServer("validityTab",appData=appData)
+    interpretationTabServer("interpretationTab",appData=appData)
   }
   
   shinyApp(ui, server)

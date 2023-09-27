@@ -1,7 +1,7 @@
 #function to create the interpretation page
 
 # module1.R
-module4UI <- function(id) {
+interpretationUI <- function(id) {
   ns <- NS(id)
   # Define UI for module 1
   fluidPage(
@@ -10,8 +10,12 @@ module4UI <- function(id) {
   )
 }
 
-interpretationTab <- function(input, output, session) {
-  ns <- session$ns
-  # Define server logic for module 4
-  # You can access input, output, and session here
+interpretationTabServer <- function(id,appData) {
+  moduleServer(
+    id,
+    function(input, output, session) {
+      
+      
+    }
+  )
 }

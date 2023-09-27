@@ -1,6 +1,6 @@
 #function to create the validity page
 
-module3UI <- function(id) {
+validityUI <- function(id) {
   ns <- NS(id)
   # Define UI for module 1
   fluidPage(
@@ -9,8 +9,12 @@ module3UI <- function(id) {
   )
 }
 
-validityTab <- function(input, output, session) {
-  ns <- session$ns
-  # Define server logic for module 3
-  # You can access input, output, and session here
+validityTabServer <- function(id,appData) {
+  moduleServer(
+    id,
+    function(input, output, session) {
+      
+      
+    }
+  )
 }

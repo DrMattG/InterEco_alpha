@@ -1,6 +1,6 @@
 #function to create the landing page
 
-module1UI <- function(id) {
+landingUI <- function(id) {
   ns <- NS(id)
   # Define UI for module 1
   fluidPage(
@@ -9,8 +9,12 @@ module1UI <- function(id) {
   )
 }
 
-landingTab <- function(input, output, session) {
-  ns <- session$ns
-  # Define server logic for module 1
-  # You can access input, output, and session here
+landingTabServer <- function(id,appData) {
+  moduleServer(
+    id,
+    function(input, output, session) {
+      
+      
+    }
+  )
 }
