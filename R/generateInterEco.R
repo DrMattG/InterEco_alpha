@@ -45,10 +45,10 @@ generateInterEco <- function(appData){
     })
     
     # Call the respective module's server function
-    moduleServer(module1, "landingTab")
-    moduleServer(module2, "summaryTab")
-    moduleServer(module3, "validityTab")
-    moduleServer(module3, "interpretationTab")
+    moduleServer(landingTab, "landingTab")
+    moduleServer(summaryTab, "summaryTab")
+    moduleServer(validityTab, "validityTab")
+    moduleServer(interpretationTab, "interpretationTab")
   }
   
   shinyApp(ui, server)
