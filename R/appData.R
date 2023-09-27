@@ -30,7 +30,7 @@ AppClass=R6::R6Class(classname = "AppData",
 #' @param model the lm model object (limited to lm for this example)
 #' @param pred The name of the predictor variable involved in the interaction.
 #' @param modx The name of the moderator variable involved in the interaction.
-#' @return an R6 class object with both model and data together (use $ to call each e.g. 'appdata$model')
+#' @return an R6 class object with both model and data together (use slots to call each e.g. 'appdata$model')
 #' @export
 #'
 #' @examples
