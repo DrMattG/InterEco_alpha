@@ -1,12 +1,14 @@
 library(shiny)
-source("appData.R")
-source("landingtab.R")
-source("summaryTab.R")
-source("validityTab.R")
-source("interpretationTab.R")
-source("generateInterEco.R")
+source("R/appData.R")
+source("R/landingtab.R")
+source("R/summaryTab.R")
+source("R/validityTab.R")
+source("R/interpretationTab.R")
+source("R/generateInterEco.R")
 
-
-
+# make the lm model with an interaction
+fitiris <- lm(Petal.Length ~ Petal.Width * Species, data = iris)
+appdata<-makeAppData(data = iris, model = fitiris, pred="Petal.Width", modx="Species")
+generateInterEco(appdata)
 
 

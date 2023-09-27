@@ -11,6 +11,7 @@ module4UI <- function(id) {
 }
 
 interpretationTab <- function(input, output, session) {
+  ns <- session$ns
   # Define server logic for module 4
   # You can access input, output, and session here
 }

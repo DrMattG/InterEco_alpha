@@ -10,6 +10,7 @@ module3UI <- function(id) {
 }
 
 validityTab <- function(input, output, session) {
+  ns <- session$ns
   # Define server logic for module 3
   # You can access input, output, and session here
 }
