@@ -1,0 +1,14 @@
+generateInterEco <- function(appData){
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+}
