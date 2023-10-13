@@ -22,7 +22,7 @@ RawPlot<-function(Y, D, X, Ylabel,Dlabel,Xlabel, data){
   interflex::interflex(estimator = "raw",Y = Y, D = D,
             X = X, data = data, weights = NULL, 
             Ylabel = Ylabel, Dlabel = D, 
-            Xlabel=X, main = "Raw Plot", cex.main = 1.2, 
+            Xlabel=X, main = "Linear Interaction Diagnostic (LID) plot", cex.main = 1.2, 
             #diff.values = ,
             ncols=2)+
     ggplot2::theme_bw()

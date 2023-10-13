@@ -7,8 +7,8 @@ validityUI <- function(id) {
     h3("Model Validity"),
     
     # Add UI components
-    verbatimTextOutput(ns("modelPrint")),
-    plotOutput(ns("modelPlot"))
+    plotOutput(ns("pairsPlot")),
+    plotOutput(ns("interflexPlot"))
   )
 }
 
@@ -17,11 +17,11 @@ validityTabServer <- function(id,appData) {
     id,
     function(input, output, session) {
 
-      #print the app data
-      output$modelPrint <- renderPrint(appData)
-      
-      #plot the model
-      output$modelPlot <- renderPlot(plot(appData$model))
+      #plot pairsplot
+      output$pairsPlot<-renderPlot(GGally::ggpairs(appdata$data))
+      #plot the interflex
+      output$interflexPlot <- renderPlot(RawPlot(Y = "mpg", D = appdata$pred,X = appdata$modx,Ylabel="mpg", Xlabel=appdata$modx,
+                                                 Dlabel = appdata$pred,data = appdata$data))
     }
   )
 }
