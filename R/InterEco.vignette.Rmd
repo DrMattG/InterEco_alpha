@@ -3,15 +3,17 @@ title: "InterEco vignette"
 editor: visual
 ---
 
+**InterEco overview**
+
 Hello and welcome to InterEco! Here you can learn how to build a free, interactive website to effectively communicate the results of your ecological analysis.
 
-\*\*What is InterEco?\*\*
+**\*\*What is InterEco?\*\***
 
-'InterEco' is short for '\*\*\*inter\*\*\*active \*\*\*eco\*\*\*logy'. It is a tool that helps you build an interactive website that can be published for free alongside your ecological research article. It uses [Shiny](https://shiny.rstudio.com/#:~:text=Shiny%20is%20an%20R%20package,%2C%20htmlwidgets%2C%20and%20JavaScript%20actions.),), an R package that makes it easy to build interactive webpages straight from R. With Shiny, you can make a slick website without having any experience in web development (e.g. html, Java). InterEco websites can be published alongside academic publications, project reports, or standalone.
+'InterEco' is short for '***inter***active ***eco***logy'. It is a tool that helps you build an interactive website to present the results of your model containing statistical interactions. It uses [Shiny](https://shiny.rstudio.com/#:~:text=Shiny%20is%20an%20R%20package,%2C%20htmlwidgets%2C%20and%20JavaScript%20actions.),), an R package that makes it easy to build interactive webpages straight from R. With Shiny, you can make a slick website without having any experience in web development (e.g. html, Java). InterEco websites can be published for free alongside academic publications, project reports, or standalone.
 
-With an InterEco website, you can present the results of your statistical analysis in an visual, interactive way. You can provide your audience (e.g., fellow ecologists, policymakers or practitioners) with personalised options to evaluate and interact with different aspects of your model and data, such as model predictions under user-specified conditions, or options to visualise the underlying data in different graphical formats. In doing so, your website can facilitate richer interpretation, improve research openness and increase the impact of your research.
+With an InterEco website, you can present the results of your statistical analysis in an visual, interactive way. You can provide your audience (e.g., fellow scientists, policymakers or practitioners) with personalised options to evaluate and interact with different aspects of your model and data, such as model predictions under user-specified conditions, or options to visualise the underlying data in different graphical formats. In doing so, your website can facilitate richer interpretation, improve research openness and increase the impact of your research.
 
-The InterEco Tool consists of a set of detailed guidelines to help you build your website. InterEco websites have a basic structure, consisting of five separate tabs (see here \\[link\\] for more info, and here \\[link\\] for an example webpage):
+The InterEco Tool consists of a set of detailed guidelines to help you build your website. InterEco websites have a basic structure, consisting of five separate tabs (see below for more detailed info, and here **\\[link\\**] for an example webpage):
 
 1\\) [Landing page]{.underline} - Here, you can describe the overall aim of the website, and who the intended audience is. You can also give details of and link to the published article or report that your website is associated with, and any funding details. The aim of this tab is to introduce the website and state its purpose.
 
@@ -19,7 +21,7 @@ The InterEco Tool consists of a set of detailed guidelines to help you build you
 
 3\\) [Validity]{.underline} - The validity tab contains useful figures that help confirm that the model complies with underlying assumptions concerning independence, collinearity and the absence of residual patterns. This tab serves to satisfy readers that wish to know more about the underlying data structure and model fit.
 
-[4) Interpretation]{.underline} - Here you can help your readers to interpret your study results, giving them the options to interact directly with underlying data, and choose which variables and on which measurement scale to plot predictions. The InterEco guidelines provide important hints and tips for communicating results in a useful way. For example, it gives suggestions for visualising results using different scales of measurement (whether additive or multiplicative), depending on the research question. This tab will help to avoid misinterpretation of study results and avoid common inferential errors.
+[4) Interpretation]{.underline} - Here you can help your readers to interpret your study results, giving them the options to interact directly with underlying data, and choose which variables and on which measurement scale to plot predictions. The InterEco guidelines below provide important hints and tips for communicating results in a useful way. For example, it gives suggestions for visualising results using different scales of measurement (whether additive or multiplicative), depending on the research question. This tab will help to avoid misinterpretation of study results and avoid common inferential errors.
 
 5\\) Generality - Here you can describe and justify the target context to which your inferences can be validly transferred (also known as the applicability domain). The aim of this tab is to encourage authors to draw conservative inferences, rather than make broad generalizations about undefined or ill-defined target contexts. Here you can clearly specify the assumptions and conditions that must hold for inferences to transfer.
 
@@ -27,13 +29,13 @@ The InterEco Tool comprises a detailed, step-by-step guide for making your own I
 
 To get started with your own model, you can either follow the guide \\[link\\], or jump to our github page \\[link\\] and download a shortened version of the tool (without as much annotation). Our guide explains the rationale behind InterEco, and works with an example data set \\[link download\\]. We provide lots of hints and tips, with example code, which can be modified to suit your needs and wishes. You can also view an example InterEco webpage here \\[link to worked example\\].
 
-\*\*Who should use InterEco?\*\*
+[**\*\*Who should use InterEco?\*\***]{.underline}
 
 InterEco is aimed at ecologists who fit statistical models to data, where the models involve nonlinear relationships. For example, models may contain terms such as statistical interactions (product terms), polynomials, transformed variables, or may comprise generalized linear models with nonlinear link functions. Your model might be relatively simple, e.g., a linear model with two predictors and their interaction, or a more complex generalised linear model with several predictors.
 
 Currently supported model objects are those fitted with lm, glm, lmer, and glmer.
 
-\*\*Why InterEco?\*\*
+[**\*\*Why InterEco?\*\***]{.underline}
 
 The presentation of model results in scientific publications has remained relatively unchanged for centuries, with scientific figures typically rendered as static, 2D images with a single x and y axis. Such simplistic presentations create missed opportunities for much richer interpretation, can conceal ecological complexity and even lead to erroneous conclusions \\[link to paper\\].
 
@@ -41,35 +43,69 @@ It is time to break free from the constraints of 2D figures and go interactive!I
 
 InterEco helps researchers tell stories with their models and data. With an InterEco website, audiences can select and directly interact with underlying data and predictions generated by complex models. We foresee three major benefits of InterEco, in terms of improvements to research interpretability, generality and validity. For more details on InterEco's rationale, see page 'Why InterEco' \\[link\\], and check out our paper \\[add link\\] - see the citation below.
 
-\*\*How to cite InterEco\*\*
+[**\*\*How to cite InterEco\*\***]{.underline}
 
 If you benefit from InterEco, then please use the following citation in your work:
 
 \\[insert ref - github page and paper?\\]
 
-InterEco webpages consist of five tabs, as follows:
+**InterEco Guidelines**
 
-1) [Landing page]{.underline} - Here, you can describe the overall aim of the website, and who the intended audience is. You can also give details of and link to the published article or report that your website is associated with, and any funding details. The aim of this tab is to introduce the website and clearly state its purpose.
+Here we provide guidelines for making your InterEco app. More information and justification for our recommendations can be found in our publication [link].
 
-2) [Study summary]{.underline} - Here, describe the study's background and rationale for the research questions and state the taxonomic, spatial and temporal scope of the research. You can include important methodological details, including the study location, sampling design, and data collection procedures. Describe the environmental variables that are used in the statistical model. You can provide interactive maps to allow the user to explore the study area and distribution of study sites along environmental gradients. The aim of this tab is to give the reader enough information, so that they can understand the research question and what was done in the study. The amount of detail you provide may vary depending on whether you would like the website to standalone from your research article, and/or whether the article is open access.
+\<Say here how structured - modules etc\>. One for each tab.
 
-3) [Validity]{.underline} - The validity tab contains useful figures that help confirm that the model complies with underlying assumptions concerning independence, collinearity and the absence of residual patterns. This tab serves to satisfy readers that wish to know more about the underlying data structure and model fit. We recommend including three types of figures, as well as accompanying text to explain what the figures show:
+Throughout the guidelines, we refer to the dependent variable in the model as *Y*. Independent variables contained within a second-order statistical interaction are denoted as *X* and *Z*. When producing figures, e.g., of raw data or of model predictions, the user might need to distinguish between a 'focal' variable and a 'modifier variable'. For example, predictions might be plotted for *X* vs. *Y*, and faceted by three levels (if categorical) or values (if continuous) of *Z*. Statistically, effect modification is symmetric: if *Z* modifies the effect of *X* on *Y*, then *X* modifies the effect of *Z* on *Y*. The distinction between a 'focal' and 'modifying' variable may be arbitrary, or it may have some justification on practical grounds, for example *X* is a variable that we humans can manipulate (e.g. a conservation intervention), or it represents a given change at a locality, or because a study's sampling strategy (e.g. blocking or randomisation) has been designed for a \'treatment\' variable *X*, while *Z* is a contextual variable that we cannot change, or is outside of the investigator's control such as biome, latitude, taxon, age, rainfall, etc., or an intrinsic variable such as sex. Whatever the case, we recommend that interactions are explored symmetrically. For this reason, the InterEco app allows users to create interactive figures, that allow readers to alternate between variables that are specified as 'focal' or 'modifiying'.
+
+[**Landing tab**]{.underline}
+
+To launch the module \<Internal hyperlink\>
+
+Here, you can write text that describes the overall aim of the website, and who the intended audience is. You can also give details of and link to the published article or report that your website is associated with, and any funding details. The aim of this tab is to introduce the website and clearly state its purpose.
+
+[**Study summary tab**]{.underline}
+
+To launch the summary tab module \<Internal hyperlink\>
+
+Here, you can insert text that describes the study's background and rationale for the research questions and state the taxonomic, spatial and temporal scope of the research. You can include important methodological details, including the study location, sampling design, and data collection procedures, and describe the environmental variables that are used in the statistical model. You can provide interactive maps to allow the user to explore the study area and distribution of study sites along environmental gradients. The aim of this tab is to give the reader enough information, so that they can understand the research question and what was done in the study. The amount of detail you provide may vary depending on whether you would like the website to standalone from your research article, and/or whether the article is open access.
+
+InterEco provides the following subheadings to get you started:
+
+-   Background and rationale
+
+-   Study aims and objectives
+
+-   Study area - you may wish to include a map/figure depicting the study area and sampling locations, to show environmental variation in the study area.
+
+-   Sampling design and data collection
+
+-   Taxa
+
+-   Dependent variables
+
+-   Independent variables - you may wish to provide these in table format
+
+[**Validity**]{.underline}
+
+To launch the validity tab module \<Internal hyperlink\>
+
+The validity tab should contain useful figures that help confirm that the model complies with underlying assumptions concerning independence, collinearity and the absence of residual patterns. This tab serves to satisfy readers that wish to know more about the underlying data structure and model fit. InterEco contains code for producing five plots, and to add accompanying text to explain to readers what the figures show.
 
 i) Pairs plots - a plot matrix comprising bivariate scatterplots for each variable combination. This allows the reader to evaluate potential collinearity in the dataset.
 
-ii) Variance inflation factors (VIF) - a figure displaying the VIF scores of each variable in the model. This allows readers to view the factors by which the variance of model coefficients are "inflated" by the existence of correlations among the model variables. Readers can ascertain that the VIF values are below an acceptable threshold.
+ii) Variance inflation factor (VIF) plot - a figure displaying the VIF scores of each variable in the model. This allows readers to view the factors by which the variance of model coefficients are "inflated" by the existence of correlations among the model variables. Readers can ascertain that the VIF values are below an acceptable threshold.
 
-iii) Residual plots - Following Zuur & Ieno (2016), standardized residuals can be plotted against each independent variable in the model, variables not in the model, and against spatial and temporal variables (e.g., latitude and longitude). This plot allows the reader to confirm the absence of residual patterns.
+iii) Residual plots - Following Zuur & Ieno (2016), standardized residuals can be plotted against each independent variable in the model, variables that were perhaps considered but not included in the model, and against spatial and temporal variables (e.g., latitude and longitude). This plot allows the you to demontsrate the absence of residual patterns to readers.
 
 iv) Marginal effect plots that display common support (following [Hainmueller et al.](https://www.cambridge.org/core/journals/political-analysis/article/how-much-should-we-trust-estimates-from-multiplicative-interaction-models-simple-tools-to-improve-empirical-practice/D8CAACB473F9B1EE256F43B38E458706) (2018)). Marginal effect plots display the estimated coefficient of a focal variable *X* and its confidence interval against values of a second variable *Z* (with which it interacts). They indicate the statistical significance, uncertainty, magnitude, and direction of an effect across a full hypothetical range of the modifying variable, often a range from 3SD below to 3SD above the mean. Users should include a frequency histogram of the second variable along the *x*-axis, to allow the user to judge common support based on the distribution of that variable. We recommend that two marginal effect plots are created, with variables *X* and *Z* specified as modifying variables ([Berry et al. 2012](https://www.journals.uchicago.edu/doi/full/10.1017/S0022381612000199); [Spake et al. 2023](https://onlinelibrary.wiley.com/doi/full/10.1111/brv.12939))
 
-v) Linear Interaction Diagnostic (LID) plots (following [Hainmueller et al.](https://www.cambridge.org/core/journals/political-analysis/article/how-much-should-we-trust-estimates-from-multiplicative-interaction-models-simple-tools-to-improve-empirical-practice/D8CAACB473F9B1EE256F43B38E458706) 2018): Scatterplots of *Y* vs *X* for levels/binned groups of Z, with LOESS (i.e. locally weighted regression) and ordinary least squares (OLS) fits. 
+v) Linear Interaction Diagnostic (LID) plots (following [Hainmueller et al.](https://www.cambridge.org/core/journals/political-analysis/article/how-much-should-we-trust-estimates-from-multiplicative-interaction-models-simple-tools-to-improve-empirical-practice/D8CAACB473F9B1EE256F43B38E458706) 2018): Scatterplots of *Y* vs *X* for levels/binned groups of Z, with LOESS (i.e. locally weighted regression) and ordinary least squares (OLS) fits. The two lines (from OLS and LOESS smoother) are close to each other across groups, indicating that both conditional expectation functions are well approximated with a linear fit as required by the LIE assumption. The lines will diverge considerably when the true marginal effect is nonlinear.
 
-The two lines (from OLS and LOESS smoother) are close to each other across groups, indicating that both conditional expectation functions are well approximated with a linear fit as required by the LIE assumption. The lines will diverge considerably when the true marginal effect is nonlinear.
+[**Interpretation**]{.underline}
 
-\
+Here you can help your readers to interpret your study results, giving them the options to interact directly with underlying data, and choose which variables and on which measurement scale to plot predictions.
 
-[4) Interpretation]{.underline} - Here you can help your readers to interpret your study results, giving them the options to interact directly with underlying data, and choose which variables and on which measurement scale to plot predictions. The InterEco guidelines provide important hints and tips for communicating results in a useful way. For example, it gives suggestions for visualising results using different scales of measurement (whether additive or multiplicative), depending on the research question. This tab will help to avoid misinterpretation of study results and avoid common inferential errors.
+isualising results using different scales of measurement (whether additive or multiplicative), depending on the research question. This tab will help to avoid misinterpretation of study results and avoid common inferential errors.
 
 $$Insert print screen of example$$
 
