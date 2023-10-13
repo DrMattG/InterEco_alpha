@@ -1,5 +1,6 @@
-# Plotting functions to visualize the covariate space and assess the location of median and mean values
+# Plotting functions to visualize the covariate space 
 
+# vsisualize the covariate space and show locations of median values
 #' @param covs character string of all model predictors
 #' @param data dataframe
 #'
