@@ -1,6 +1,6 @@
 # Plotting functions to visualize the covariate space and assess the location of median and mean values
 
-#' @param C character string of all model predictors
+#' @param covs character string of all model predictors
 #' @param data dataframe
 #'
 #' @return
@@ -11,12 +11,12 @@
 #'  appdata <- makeAppData(data = mtcars, model = fiti, pred="hp", modx="wt")
 #'  covariatespacePlot(D = appdata$pred, X = appdata$modx, data = appdata$data)
 
-#for ants C is "lt_clim","woody","perc_clay","bare","lui","exotic_grnd"
+#for ants covs is "lt_clim","woody","perc_clay","bare","lui","exotic_grnd"
 
-covariatespacePlot<-function(C, data){
+covariatespacePlot<-function(covs, data){
   
   #get covariate data frame
-  covs <- data[,C]
+  covs <- data[,covs]
   covs <- covs[complete.cases(covs),]
   
   #functions for the ggpairs plot
