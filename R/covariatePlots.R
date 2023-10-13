@@ -23,7 +23,7 @@ covariatespacePlot<-function(covs, data){
   #functions for the ggpairs plot
   upper_fn <- function(data, mapping, ...){
     p <- ggplot(data = data, mapping = mapping) + 
-      stat_density2d(aes(fill=..density..), geom="tile", contour = FALSE) +
+      stat_density2d(aes(fill=after_stat(density)), geom="tile", contour = FALSE) +
       scale_fill_gradientn(colours=terrain.colors(100)) +
       geom_point(size=0.5, alpha = 0.5)
     p
