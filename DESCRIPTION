@@ -1,0 +1,14 @@
+Package: InterEco
+Title: Create a Shiny App to explore your ecological interaction models
+Version: 0.0.0.9000
+Authors@R: 
+    c(person(given="Rebecca", family= "Spake", role = c("aut"), email="r.spake@reading.ac.uk" ),
+    person(given="Diana",family= "Bowler",role=c("aut"), email="DiaBow@ceh.ac.uk"),
+    person(given="Simon", family= "Rolph",role=c("aut"),email="simrol@ceh.ac.uk" ),
+    person(given="Matthew", family= "Grainger",role=c("cre"),email="matthew.grainger@nina.no",
+           comment = c(ORCID = "0000-0001-8426-6495")))
+Description: Creates a Shiny App which explores the interaction terms in an ecological model. 
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3

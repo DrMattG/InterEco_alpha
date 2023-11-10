@@ -22,6 +22,7 @@ bestmod=glmer(richness~scale(lt_clim)*scale(woody) +scale(lt_clim)*scale(perc.cl
 bestmod.us=glmer(richness~lt_clim*woody +lt_clim*perc.clay+  lt_clim*bare+ lui +exotic_grnd  + (1|farm_id), family="poisson", data=dat)
 
 ```
+
 ```{r}
 dat$lt_cut = cut(dat$lt_clim,3, c("1 lo", "2 med", "3 high"))
 interflex(estimator = "raw",Y = "richness", D = "lt_cut", X = "perc.clay", data = dat, weights = NULL, Ylabel = "Richness", Dlabel = "lt_clim", Xlabel="woody", main = "Raw Plot", cex.main = 1.2, ncols=3)+theme_bw()
@@ -34,6 +35,7 @@ plot(out)
 
 
 ```
+
 ```{r}
 #takes too long!
 #s5.kernel <-interflex(Y = "richness", D = "lt_clim", X = "perc.clay", data = dat, estimator = "kernel",diff.values= c(10,30,50))
