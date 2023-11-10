@@ -117,7 +117,7 @@ The interpretation tab includes two figures and a sidebar:
 
 -   A 'NAME' plot (Figure 2) - Comprising a pairs plot of model covariates, with covariate density plots along the diagonals. For each plot, straight lines are added that intersect the axes at values at which covariates are 'held at' while making predictions for the above conditional plots.
 
-    \<Diana - please add deets of the distance metric and how fits with the pairs plot\>
+    **\<Diana - please add deets of the distance metric and how fits with the pairs plot\>**
 
 -   Specification sidebar - Here, readers can use sliders and drop-down menus to specify the following features of the plots:
 
@@ -125,14 +125,20 @@ The interpretation tab includes two figures and a sidebar:
 
     -   Second variable with which to facet the figures by (contained within a statistical interaction with *X*)
 
-    -   Number of facets and values of the second variable *Z* at which model predictions will be generated. By default, three facets are generated, for lower quartile, median and upper quartile values of *Z.*
+    -   Number of facets and values of the second variable *Z* at which model predictions will be generated. By default, three facets are generated, for lower quartile, median and upper quartile values of *Z.* These can be changed to **XXXXXXXX**.
 
     -   Covariate values at which model predictions will be generated
 
-    -   The measurement scale of the response variable  - whether an additive or multiplicative scale is used. The scale of measurement has important consequences for interpretation, because whether and how an effect of interest (e.g., *X* on *Y*) varies across the range of another predictor (e.g., *Z*) may greatly depend on the measurement scale ([Duncan & Kefford, 2021)](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13714). We direct users to [Spake et al. (2023)](https://onlinelibrary.wiley.com/doi/epdf/10.1111/brv.12939) for guidance on interpreting alternative measurement scales for common ecological questions.
+    -   The measurement scale of the response variable - whether an additive or multiplicative scale is used. The scale of measurement has important consequences for interpretation, because whether and how an effect of interest (e.g., *X* on *Y*) varies across the range of another predictor (e.g., *Z*) may greatly depend on the measurement scale ([Duncan & Kefford, 2021)](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13714). We direct users to [Spake et al. (2023)](https://onlinelibrary.wiley.com/doi/epdf/10.1111/brv.12939) for guidance on interpreting alternative measurement scales for common ecological questions.
 
-We encourage users to accompany figures with text that guides users through the meaning of figures - specifically for alternative specifications of the figures.
+We encourage users to accompany figures with text that guides users through the meaning of figures - specifically for alternative specifications of the figures. Any suggestion about effect modification must be made with explicit reference to the measurement scale.
 
-[Generality]{.underline}
+[**Generality**]{.underline}
 
-Here you can describe and justify the target context to which your inferences can be validly transferred (also known as the applicability domain). The aim of this tab is to encourage authors to draw conservative inferences, rather than make broad generalizations about undefined or ill-defined target contexts. We recommend writing a "Constraints on Generality" (CoG) statement, where you can clearly specify the assumptions and conditions that must hold for inferences to transfer.
+To launch the Generality tab module, link here \<Internal hyperlink\>
+
+The Generality tab serves to provide readers with an understanding of the generality of your study findings. InterEco does not wish to be too prescriptive in how to do this, and suggest the inclusion of a Constraints on Generality statement, which aims to explicate the target population about which inferences can be safely drawn by readers. To construct a CoG statement,ecologists might (generally!) find it useful to consider the taxa, environments and locations to which their effects are likely to hold, how how they are likely to change.
+
+InterEco provides the following subheadings to get you started:
+
+[needs work].
