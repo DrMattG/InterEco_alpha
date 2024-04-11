@@ -9,6 +9,9 @@ source("R/validityTab.R")
 source("R/interpretationTab.R")
 source("R/generateInterEco.R")
 source("R/InterflexPlots.R")
+source("R/vifPlots.R")
+source("R/residualPlots.R")
+library("ggplot2") #workaround 
 
 #create your study summary page
 source("R/generateTemplateSummary.R")
@@ -16,10 +19,10 @@ generateTemplateSummary("test.Rmd") #creates the template which you can go and e
 
 # make the lm model with an interaction
 #fitiris <- lm(Petal.Length ~ Petal.Width * Species, data = iris)
-fiti<-lm(mpg~hp*wt,data=mtcars)
+fiti<-lm(mpg ~ hp * wt,data = mtcars)
 #create the appData object
 #appdata <- makeAppData(data = iris, model = fitiris, pred="Petal.Width", modx="Species")
-appdata <- makeAppData(data = mtcars, model = fiti, pred="hp", modx="wt")
+appdata <- makeAppData(data = mtcars, model = fiti, pred = "hp", modx = "wt")
 
 #generate interEco app and launch
 generateInterEco(appdata)

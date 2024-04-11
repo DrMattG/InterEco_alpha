@@ -8,7 +8,10 @@ validityUI <- function(id) {
     
     # Add UI components
     plotOutput(ns("pairsPlot")),
-    plotOutput(ns("interflexPlot"))
+    plotOutput(ns("vifPlot")),
+    plotOutput(ns("residPlot")),
+    plotOutput(ns("marginalPlot")),
+    plotOutput(ns("lidPlot"))
   )
 }
 
@@ -18,10 +21,39 @@ validityTabServer <- function(id,appData) {
     function(input, output, session) {
 
       #plot pairsplot
-      output$pairsPlot<-renderPlot(GGally::ggpairs(appdata$data))
-      #plot the interflex
-      output$interflexPlot <- renderPlot(RawPlot(Y = "mpg", D = appdata$pred,X = appdata$modx,Ylabel="mpg", Xlabel=appdata$modx,
-                                                 Dlabel = appdata$pred,data = appdata$data))
+      output$pairsPlot <- renderPlot(GGally::ggpairs(appdata$data))
+      
+      #plot VIF
+      output$vifPlot <- renderPlot(plot_vif(appdata$model))
+      
+      # residual plots
+      output$residPlot <- renderPlot(
+        plot_resids(model = appdata$model, data = appdata$data))
+      
+      #plot the marginal effects
+      output$marginalPlot <-
+        renderPlot(
+          interflex::interflex(
+            estimator = "binning",
+            data = appdata$data,
+            Y = all.vars(formula(appdata$model))[[1]],
+            D = appdata$pred,
+            X = appdata$modx
+          )
+        )
+      
+      # plot LID
+      output$lidPlot <- 
+        renderPlot(
+          RawPlot(Y = all.vars(formula(appdata$model))[[1]],
+                  D = appdata$pred,
+                  X = appdata$modx,
+                  Ylabel = all.vars(formula(appdata$model))[[1]], 
+                  Xlabel = appdata$modx,
+                  Dlabel = appdata$pred,
+                  data = appdata$data)
+          )
+      
     }
   )
 }
