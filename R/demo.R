@@ -11,6 +11,7 @@ source("R/generateInterEco.R")
 source("R/InterflexPlots.R")
 source("R/vifPlots.R")
 source("R/residualPlots.R")
+source("R/paramSpacePlot.R")
 library("ggplot2") #workaround 
 
 #create your study summary page
