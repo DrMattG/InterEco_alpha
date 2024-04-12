@@ -6,7 +6,8 @@ interpretationUI <- function(id) {
     h3("Model Interpretation"),
     
     # Add UI components for module 1
-    plotOutput(ns("paramSpacePlot"))
+    plotOutput(ns("paramSpacePlot")),
+    plotOutput(ns("conditionalPlot"))
     
   )
 }
@@ -18,7 +19,16 @@ interpretationTabServer <- function(id,appData) {
     
       # pairs plot of scatter in parameter space
       output$paramSpacePlot <- renderPlot(
-        plot_param_space_scatter(model = appdata$model, data = appdata$data))  
+        plot_param_space_scatter(model = appdata$model, data = appdata$data)
+        ) 
+      
+      # conditional effects plot
+      output$conditionalPlot <- renderPlot(
+        plot_conditional_effects(model = appdata$model, 
+                               data = appdata$data,
+                               pred = appdata$pred,
+                               modx = appdata$modx)
+      )
     
     }
   )
