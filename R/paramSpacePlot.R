@@ -8,7 +8,7 @@
 
 plot_param_space_scatter <- function(model, data) {
   
-  vars <- all.vars(formula(appdata$model))
+  vars <- all.vars(formula(model))
   
   scaled_covs <- data |>
     dplyr::select(vars) |>
