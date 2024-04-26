@@ -4,13 +4,14 @@
 #' @return faceted conditional effects plot
 #' @export
 
-plot_conditional_effects <- function(model, data, pred, modx) {
+plot_conditional_effects <- function(model, data, pred, modx, modx.values) {
   p <- interactions::interact_plot(model = model,
                               data = data,
                               pred = .data[[pred]],
                               modx = .data[[modx]],
                               plot.points = TRUE,
-                              facet.modx = TRUE
+                              facet.modx = TRUE,
+                              modx.values = modx.values
   )
   
   return(p)
