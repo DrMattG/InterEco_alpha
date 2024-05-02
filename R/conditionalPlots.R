@@ -11,6 +11,8 @@ plot_conditional_effects <- function(model, data, pred, modx, modx.values) {
                               modx = .data[[modx]],
                               plot.points = TRUE,
                               facet.modx = TRUE,
+                              interval = TRUE,
+                              main.title = "Conditional effects",
                               modx.values = modx.values
   )
   
