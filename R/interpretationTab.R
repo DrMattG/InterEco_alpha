@@ -25,9 +25,7 @@ interpretationUI <- function(id) {
                   sliderInput(
                     ns("num1"),
                     label = "Value 1",
-                    value = (
-                      dplyr::pull(appdata$data, appdata$modx) |> median(na.rm = TRUE)
-                    ) - dplyr::pull(appdata$data, appdata$modx) |> sd(na.rm = TRUE),
+                    value = dplyr::pull(appdata$data, appdata$modx) |> min(na.rm = TRUE),
                     min = dplyr::pull(appdata$data, appdata$modx) |> min(na.rm = TRUE),
                     max = dplyr::pull(appdata$data, appdata$modx) |> max(na.rm = TRUE)
                   ),
@@ -41,9 +39,7 @@ interpretationUI <- function(id) {
                   sliderInput(
                     ns("num3"),
                     label = "Value 3",
-                    value = (
-                      dplyr::pull(appdata$data, appdata$modx) |> median(na.rm = TRUE)
-                    ) + dplyr::pull(appdata$data, appdata$modx) |> sd(na.rm = TRUE),
+                    value = dplyr::pull(appdata$data, appdata$modx) |> max(na.rm = TRUE),
                     min = dplyr::pull(appdata$data, appdata$modx) |> min(na.rm = TRUE),
                     max = dplyr::pull(appdata$data, appdata$modx) |> max(na.rm = TRUE)
                   )
