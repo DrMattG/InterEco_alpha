@@ -7,7 +7,7 @@
 #' @export
 
 plot_vif <- function(x){
-  if (length(stats::coef(x)) < 3){
+  if (length(stats::coef(x)) < 3 & class(x) == "lm"){
     stop("You need more than 1 predictor to calculate VIFs")
   }
   VIF <- car::vif(x)
