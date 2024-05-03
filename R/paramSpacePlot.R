@@ -14,7 +14,7 @@ plot_param_space_scatter <- function(model, data) {
     dplyr::select(vars) |>
     tidyr::drop_na()
   
-  m <- GGally::ggpairs(covs, 
+  m <- GGally::ggpairs(covs, cardinality_threshold = NULL,
                lower = list(continuous = upper_fn),
                diag = list(continuous = diag_fn),
                upper = "blank",
