@@ -19,12 +19,24 @@ library("ggplot2") #workaround
 source("R/generateTemplateSummary.R")
 generateTemplateSummary("test.Rmd") #creates the template which you can go and edit
 
-# make the lm model with an interaction
-#fitiris <- lm(Petal.Length ~ Petal.Width * Species, data = iris)
-fiti<-lm(mpg ~ hp * wt,data = mtcars)
-#create the appData object
-#appdata <- makeAppData(data = iris, model = fitiris, pred="Petal.Width", modx="Species")
-appdata <- makeAppData(data = mtcars, model = fiti, pred = "hp", modx = "wt")
 
-#generate interEco app and launch
+# mtcars example ----------------------------------------------------------
+
+# make the lm model with an interaction
+mtcars_mod <-lm(mpg ~ hp * wt,data = mtcars)
+
+#create the appData object
+appdata <- makeAppData(data = mtcars, model = mtcars_mod, pred = "hp", modx = "wt")
+
+
+# ants example ------------------------------------------------------------
+
+load(here::here("data", "ants_data.rda"))
+load(here::here("data", "bestmod.rda"))
+
+appdata <- makeAppData(data = ants, model = bestmod, pred = "lt_clim", modx = "woody")
+
+
+# generate interEco app and launch ----------------------------------------
+
 generateInterEco(appdata)
