@@ -21,7 +21,9 @@ validityTabServer <- function(id,appData) {
     function(input, output, session) {
 
       #plot pairsplot
-      output$pairsPlot <- renderPlot(GGally::ggpairs(appdata$data))
+      output$pairsPlot <- renderPlot(GGally::ggpairs(appdata$data,
+                                     columns = all.vars(formula(appdata$model)),
+                                     cardinality_threshold = NULL))
       
       #plot VIF
       output$vifPlot <- renderPlot(plot_vif(appdata$model))
