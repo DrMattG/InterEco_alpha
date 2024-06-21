@@ -12,6 +12,7 @@ source("R/InterflexPlots.R")
 source("R/vifPlots.R")
 source("R/residualPlots.R")
 source("R/paramSpacePlot.R")
+source("R/referencesTab.R")
 source("R/conditionalPlots.R")
 library("ggplot2") #workaround 
 

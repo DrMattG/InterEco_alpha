@@ -7,7 +7,8 @@ generateInterEco <- function(appData){
       tabPanel("Landing", id = "landingTab"),
       tabPanel("Summary", id = "summaryTab"),
       tabPanel("Validity", id = "validityTab"),
-      tabPanel("Interpretation", id = "interpretationTab")
+      tabPanel("Interpretation", id = "interpretationTab"),
+      tabPanel("References", id= "referencesTab")
     ),
     uiOutput("tab_content")
   )
@@ -26,6 +27,8 @@ generateInterEco <- function(appData){
           validityUI("validityTab")
         } else if (tab == "Interpretation") {
           interpretationUI("interpretationTab")
+        } else if (tab== "References"){
+          referencesUI("referencesTab")
         }
       )
     })
@@ -35,6 +38,8 @@ generateInterEco <- function(appData){
     summaryTabServer("summaryTab",appData=appData)
     validityTabServer("validityTab",appData=appData)
     interpretationTabServer("interpretationTab",appData=appData)
+    referencesTabServer("referenceTab", appData = appData)
+    
   }
   
   shinyApp(ui, server)
