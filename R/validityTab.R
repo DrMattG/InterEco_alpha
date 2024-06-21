@@ -21,7 +21,9 @@ validityTabServer <- function(id,appData) {
     function(input, output, session) {
 
       #plot pairsplot
-      output$pairsPlot <- renderPlot(GGally::ggpairs(appdata$data))
+      output$pairsPlot <- renderPlot(GGally::ggpairs(appdata$data,
+                                     columns = all.vars(formula(appdata$model)),
+                                     cardinality_threshold = NULL))
       
       #plot VIF
       output$vifPlot <- renderPlot(plot_vif(appdata$model))
@@ -35,7 +37,7 @@ validityTabServer <- function(id,appData) {
         renderPlot(
           interflex::interflex(
             estimator = "binning",
-            data = appdata$data,
+            data = as.data.frame(appdata$data),
             Y = all.vars(formula(appdata$model))[[1]],
             D = appdata$pred,
             X = appdata$modx
@@ -51,7 +53,7 @@ validityTabServer <- function(id,appData) {
                   Ylabel = all.vars(formula(appdata$model))[[1]], 
                   Xlabel = appdata$modx,
                   Dlabel = appdata$pred,
-                  data = appdata$data)
+                  data = as.data.frame(appdata$data))
           )
       
     }
