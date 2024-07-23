@@ -31,12 +31,12 @@ appdata <- makeAppData(data = mtcars, model = mtcars_mod, pred = "hp", modx = "w
 
 
 # ants example ------------------------------------------------------------
-
-load(here::here("data", "ants_data.rda"))
-load(here::here("data", "bestmod.rda"))
-
-appdata <- makeAppData(data = ants, model = bestmod, pred = "lt_clim", modx = "woody")
-
+# 
+# load(here::here("data", "ants_data.rda"))
+# load(here::here("data", "bestmod.rda"))
+# 
+# appdata <- makeAppData(data = ants, model = bestmod, pred = "lt_clim", modx = "woody")
+# 
 
 # generate interEco app and launch ----------------------------------------
 

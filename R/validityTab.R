@@ -8,6 +8,7 @@ validityUI <- function(id) {
     
     # Add UI components
     plotOutput(ns("pairsPlot")),
+    h4("Here shown are variable distributions (diagonal) and bivariate scatterplots, demonstrating that the independent variables were not highly correlated with one another (all Spearman’s rho values were <0.X), and an absence of outliers."),
     plotOutput(ns("vifPlot")),
     plotOutput(ns("residPlot")),
     plotOutput(ns("marginalPlot")),
