@@ -21,14 +21,14 @@ plot_vif <- function(x){
   p <- ggplot2::ggplot(df, aes(x = value, y = var, color = flag)) +
     ggplot2::geom_point(size = 2) +
     ggplot2::geom_segment(aes(x = 0, xend = value, y = var, yend = var)) +
-    ggplot2::geom_vline(xintercept = c(4, 10), color = "grey",
+    ggplot2::geom_vline(xintercept = c(2, 4), color = "grey",
                linetype = "dashed") +
     scale_color_manual(values = c("black", "red"), drop = FALSE) +
     scale_x_continuous(expand = c(0, 0)) +
     labs(subtitle = "Assessing multicollinearity",
          title = "Variance Inflation Factors",
          y = "",
-         x = "VIF") +
+         x = "gVIF") +
     theme(legend.position = "none",
           plot.subtitle = element_text(size = 9))
   return(p)
