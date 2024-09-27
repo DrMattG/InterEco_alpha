@@ -16,7 +16,7 @@ summaryTabServer <- function(id,appData) {
       
       # Render the html
       output$summaryHtml <- renderUI({
-        filePath <- "test.Rmd"
+        filePath <- "data/studySummary.Rmd"
         #render the html from the rmarkdown
         html_file <- rmarkdown::render(filePath,output_file = tempfile())
         shiny::includeHTML(html_file)

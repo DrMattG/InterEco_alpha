@@ -1,0 +1,53 @@
+---
+title: "Study summary"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Background and rationale
+
+[insert text here]
+
+## Study aims and objectives
+
+We tested the hypotheses that ant richness (species and genus), abundance and diversity would vary according to land cover and land use intensity but that these effects would vary according to climate.
+
+## Study area
+
+### Geographic Location
+This study took place in northern New South Wales, Australia, spanning a 270 km longitudinal range and a 1000 m elevation gradient, encompassing a wide variety of environmental conditions within the study area (Figure 1).
+
+### Climate
+The climate varies across the study area. Modelled average annual rainfall ranged from 530 mm in the west to 890 mm in the east, and maximum temperatures ranged from 27 °C in the west to 20 °C in the east. Rainfall is highest in the summer, with relatively uniform distribution throughout the other seasons.
+
+### Land Use
+The study area has undergone extensive native vegetation clearance, with only 31% of the area described as "intact" native vegetation. Land use is dominated by livestock grazing (37% of modified pastures, 12% of native vegetation), cropping (dryland 27%, irrigated 4%), and minimal agriculture or conservation areas (14% of the region).
+
+### Types of Native Vegetation
+The intact native vegetation in the area consists of grassy woodlands and dry sclerophyll forests at higher elevations, and semi-arid woodlands at lower elevations.
+
+```{r pressure, echo=FALSE, fig.cap="Figure 1. Study area, site locations and modelled long-term aridity surface (aridity is highest where shading is lightest)", out.width = '100%'}
+knitr::include_graphics(here::here("data", "study_area.png"))
+```
+
+## Sampling design and data collection
+
+27 farms were selected across the study area. Within each farm, 2-8 sampling sites were established, each measuring 20 x 50 meters. These sites were selected to represent a range of land cover and land use types. Additionally, 8 sites within crown land on traveling stock routes/reserves (TSRs) were included in the study. TSRs varied in land cover and grazing intensity. A total of 121 sites were sampled in total (see Fig. 1).
+
+At each site, 10 pitfall traps were opened for 14 days in summer 2009 to sample ground-active arthropods. Individuals from each pitfall trap were pooled to the site level.
+
+Individuals were identified to genus level and were distinguished morphologically as morphospecies, ‘species’ from hereon. Several response variables were calculated from the data. Here we focus on species richness, the total number of species recorded at each site.
+
+### Taxa
+
+Ground-dwelling ants (Family: Formicidae).
+
+### Dependent variables
+
+Species richness, the total number of ant species recorded at each site.
+
+### Independent variables
+
