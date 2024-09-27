@@ -51,3 +51,14 @@ Species richness, the total number of ant species recorded at each site.
 
 ### Independent variables
 
+| Category   | Variable (potential range)                                   |
+|------------|--------------------------------------------------------------|
+| Climate    | Aridity: long-term climate (continuous variable 0–1)         |
+|            | Aridity: recent climate (continuous variable 0–1)            |
+|            | Aridity: recent weather (continuous variable 0–1)            |
+| Land cover | Canopy cover (0–100 %)                                       |
+|            | Bare ground (0–100 %)                                        |
+| Land use   | Land use intensity (Integers 0–12 converted to a proportion) |
+|            | Exotic groundcover (0–100 %)                                 |
+| Soils      | pH (0–14)                                                    | 
+|            | Clay content (0–100 %)                                       |
